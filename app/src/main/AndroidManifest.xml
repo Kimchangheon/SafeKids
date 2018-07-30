@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".Admin" />
         <activity android:name=".Parents" />
-        <activity android:name=".board"></activity>
+        <activity android:name=".board" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".FindIdOrPw"></activity>
     </application>
 
 </manifest>
