@@ -16,11 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Admin" />
-        <activity android:name=".Parents" />
-        <activity android:name=".board" />
-        <activity android:name=".SignUp" />
-        <activity android:name=".FindIdOrPw"></activity>
+        <activity
+            android:name=".Admin"
+            android:label="관리자"/>
+        <activity
+            android:name=".Parents"
+            android:label="학부모"/>
+        <activity
+            android:name=".board"
+            android:label="게시판"/>
+        <activity
+            android:name=".SignUp"
+            android:label="회원가입"/>
+        <activity
+            android:name=".FindIdOrPw"
+            android:label="ID/PW찾기">
+        </activity>
     </application>
 
 </manifest>
