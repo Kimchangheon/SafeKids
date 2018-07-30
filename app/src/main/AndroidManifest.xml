@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".Admin" />
         <activity android:name=".Child" />
-        <activity android:name=".Parents"></activity>
+        <activity android:name=".Parents" />
+        <activity android:name=".board"></activity>
     </application>
 
 </manifest>
