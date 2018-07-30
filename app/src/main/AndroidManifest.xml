@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Admin" />
+        <activity android:name=".Parents" />
+        <activity android:name=".board" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".FindIdOrPw"></activity>
     </application>
 
 </manifest>
