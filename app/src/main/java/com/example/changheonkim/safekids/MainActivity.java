@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         TextView SignUp = (TextView)findViewById(R.id.SignUp);
         TextView FindIdOrPw = (TextView)findViewById(R.id.FindIdOrPw);
 
+
+        //로그인버튼
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+        //임시버튼 시작
         tempAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(mainActivity,REQUEST_CODE_LOGIN);
             }
         });
+        //임시버튼 끝
+
         /* "회원가입" 언더라인 주고 눌렀을 때 SignUp 액티비티로 넘어가도록 함 */
         SpannableString content = new SpannableString("회원가입");
         content.setSpan(new UnderlineSpan(),0,content.length(),0);
