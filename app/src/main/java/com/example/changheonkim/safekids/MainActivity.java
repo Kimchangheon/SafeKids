@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
         Button login = (Button)findViewById(R.id.login);
         Button tempAdmin = (Button)findViewById(R.id.tempAdmin);
         Button tempParents = (Button)findViewById(R.id.tempParents);
-        Button tempChild = (Button)findViewById(R.id.tempChild);
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -31,14 +30,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent mainActivity = new Intent(getApplicationContext(),Admin.class);
-                startActivityForResult(mainActivity,REQUEST_CODE_LOGIN);
-            }
-        });
-
-        tempChild.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mainActivity = new Intent(getApplicationContext(),Child.class);
                 startActivityForResult(mainActivity,REQUEST_CODE_LOGIN);
             }
         });
