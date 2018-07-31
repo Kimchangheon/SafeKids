@@ -5,79 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admin">
-
-    <TextView
-        android:id="@+id/studentNumber"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+    <TableLayout
+        android:id="@+id/studentLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.139">
-
-        <TableRow
-            android:id="@+id/admin_tableRow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/studentName"
-                android:layout_width="99dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1"
-                android:maxLines="1"
-                android:text="학생이름"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/studentNameInput"
-                android:layout_width="84dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1"
-                android:maxLines="1"
-                android:text="김창헌"
-                android:textSize="20dp" />
-
-            <Spinner
-                android:id="@+id/adminSpinner"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_weight="3"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></Spinner>
-        </TableRow>
-    </LinearLayout>
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/studentNumber"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.058" />
+    </TableLayout>
 </android.support.constraint.ConstraintLayout>
