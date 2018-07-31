@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        tempParents.setOnClickListener(new View.OnClickListener() {
+                tempParents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent mainActivity = new Intent(getApplicationContext(),Parents.class);

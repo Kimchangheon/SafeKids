@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string-array name = "signUp">
+    <string-array name = "admin">
         <item>출결상태</item>
         <item>출석</item>
         <item>결석</item>
