@@ -13,7 +13,7 @@ public class Admin extends AppCompatActivity {
 
     //value
     int StudentNum = 1;
-
+    String[] StudentName;
 
     //widget
     TableRow admin_tableRow;
@@ -38,7 +38,7 @@ public class Admin extends AppCompatActivity {
         linearLayout = (LinearLayout)findViewById(R.id.linearLayout);
         context = this;
 
-        String StudentNum_string = Integer.toString(StudentNum);
+        String StudentNum_string = "학생 수 : " + Integer.toString(StudentNum);
 
         studentNumber.setText(StudentNum_string);
 
