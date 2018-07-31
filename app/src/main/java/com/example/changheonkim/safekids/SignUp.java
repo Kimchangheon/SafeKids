@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 public class SignUp extends AppCompatActivity {
+    int Studentnum = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,4 +19,6 @@ public class SignUp extends AppCompatActivity {
         signUpAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         signUpSpinner.setAdapter(signUpAdapter);
     }
+
+
 }
