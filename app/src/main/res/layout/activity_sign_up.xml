@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SignUp">
 <LinearLayout
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TableRow
@@ -15,7 +16,7 @@
 
         <TextView
             android:id="@+id/studentName"
-            android:layout_width="150dp"
+            android:layout_width="99dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="30dp"
@@ -24,9 +25,10 @@
             android:maxLines="1"
             android:text="학생이름"
             android:textSize="20dp" />
+
         <TextView
             android:id="@+id/studentNameInput"
-            android:layout_width="150dp"
+            android:layout_width="84dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="30dp"
@@ -37,7 +39,7 @@
             android:textSize="20dp" />
 
         <Spinner
-            android:id="@+id/signUp"
+            android:id="@+id/signUpSpinner"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
