@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         Button login = (Button)findViewById(R.id.login);
         Button tempAdmin = (Button)findViewById(R.id.tempAdmin);
         Button tempParents = (Button)findViewById(R.id.tempParents);
@@ -64,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(mainActivity,REQUEST_CODE_LOGIN);
             }
         });
+
         /* "아이디나 비밀번호를 잊으셨나요?" 언더라인 주고 눌렀을 때 FindIdOrPw 액티비티로 넘어가도록 함 */
         SpannableString content2 = new SpannableString("아이디나 비밀번호를 잊으셨나요?");
         content2.setSpan(new UnderlineSpan(), 0,content2.length(), 0);

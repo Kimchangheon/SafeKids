@@ -1,9 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    tools:context=".SignUp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp">
+    android:layout_width="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/topBlank"
+            android:layout_width="50dp"
+            android:layout_height="20dp" />
+        <!--tablerow-textview-edittext-->
+        <TableRow
+            android:id="@+id/userIdTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userId"
+                style="@style/SignupTextView"
+                android:text="아 이 디"
+                />
+            <EditText
+                android:id="@+id/userIdInput"
+                android:inputType="text"
+                android:maxLength="12"
+                android:maxLines="1"
+                android:privateImeOptions="defaultInputmode=english"
+                style="@style/SignUpEditText"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/userPwTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userPw"
+                style="@style/SignupTextView"
+                android:text="비 밀 번 호"
+                />
+
+            <EditText
+                android:id="@+id/userPwInput"
+                style="@style/SignUpEditText"
+                android:inputType="textPassword"
+                android:maxLength="15"
+                android:maxLines="1"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/userPwConfirmTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userPwConfirm"
+                style="@style/SignupTextView"
+                android:text="비밀번호확인"
+                />
+
+            <EditText
+                android:id="@+id/userPwConfirmInput"
+                style="@style/SignUpEditText"
+                android:inputType="textPassword"
+                android:maxLength="15"
+                android:maxLines="1"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/userParentsNameTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userParentsName"
+                style="@style/SignupTextView"
+                android:text="이름(학부모)"
+                />
+
+            <EditText
+                android:id="@+id/userParentsNameInput"
+                style="@style/SignUpEditText"
+                android:privateImeOptions="defaultInputmode=korean"
+                android:maxLength="3"
+                android:maxLines="1"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/userChildNameTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userChildName"
+                style="@style/SignupTextView"
+                android:text="이름(자녀)"
+
+                />
+
+            <EditText
+                android:id="@+id/userChildNameInput"
+                style="@style/SignUpEditText"
+                android:privateImeOptions="defaultInputmode=korean"
+                android:maxLength="3"
+                android:maxLines="1"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/userPhotoTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userPhoto"
+                style="@style/SignupTextView"
+                android:text="자녀의 사진"
+                />
+
+            <EditText
+                android:id="@+id/userPhotoInput"
+                style="@style/SignUpEditText"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/userEmailTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userEmail"
+                style="@style/SignupTextView"
+                android:text="이 메 일"
+                />
+
+            <EditText
+                android:id="@+id/userEmailInput"
+                style="@style/SignUpEditText"
+                android:privateImeOptions="defaultInputmode=english"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/userPhoneTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userPhone"
+                style="@style/SignupTextView"
+                android:text="전 화 번 호(-생략)"
+                />
+
+            <EditText
+                android:id="@+id/userPhoneInput"
+                style="@style/SignUpEditText"
+                android:inputType="phone"
+                android:maxLength="12"
+                android:maxLines="1"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/schoolCode"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/username"
+                style="@style/SignupTextView"
+                android:text="학 원 코 드"
+                />
+
+            <EditText
+                android:id="@+id/schoolCodeInput"
+                style="@style/SignUpEditText"
+                android:privateImeOptions="defaultInputmode=english"
+                android:inputType="text"
+                android:maxLength="7"
+                android:maxLines="1"
+                />
+        </TableRow>
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/confirm"
+            android:text="확 인"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/BottomBlank"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+    </LinearLayout>
+</ScrollView>
