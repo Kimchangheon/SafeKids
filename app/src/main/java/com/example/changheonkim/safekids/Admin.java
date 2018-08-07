@@ -63,7 +63,10 @@ public class Admin extends AppCompatActivity {
             TableRow.LayoutParams trlpsp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,TableRow.LayoutParams.WRAP_CONTENT,1);
             TableLayout.LayoutParams tllp = new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT,TableLayout.LayoutParams.WRAP_CONTENT);
             tllp.gravity = Gravity.CENTER;
-            studentname.setText("     학생이름 : " + StudentName[i-1]);
+            final int bottom = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+            tllp.bottomMargin = bottom;
+            studentname.setText("학 생 이 름 : " + StudentName[i-1]);
+            studentname.setGravity(Gravity.CENTER);
             studentname.setTextSize(20);
             studentname.setLayoutParams(tllp);
 
