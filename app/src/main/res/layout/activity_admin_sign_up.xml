@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    tools:context=".SignUp"
+    tools:context=".Admin_SignUp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -77,7 +77,7 @@
             <TextView
                 android:id="@+id/userParentsName"
                 style="@style/SignupTextView"
-                android:text="이름(학부모)"
+                android:text="이름"
                 />
 
             <EditText
@@ -86,40 +86,6 @@
                 android:privateImeOptions="defaultInputmode=korean"
                 android:maxLength="3"
                 android:maxLines="1"
-                />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/userChildNameTable"
-            style="@style/SignUpTableRow">
-            <TextView
-                android:id="@+id/userChildName"
-                style="@style/SignupTextView"
-                android:text="이름(자녀)"
-
-                />
-
-            <EditText
-                android:id="@+id/userChildNameInput"
-                style="@style/SignUpEditText"
-                android:privateImeOptions="defaultInputmode=korean"
-                android:maxLength="3"
-                android:maxLines="1"
-                />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/userPhotoTable"
-            style="@style/SignUpTableRow">
-            <TextView
-                android:id="@+id/userPhoto"
-                style="@style/SignupTextView"
-                android:text="자녀의 사진"
-                />
-
-            <EditText
-                android:id="@+id/userPhotoInput"
-                style="@style/SignUpEditText"
                 />
         </TableRow>
 

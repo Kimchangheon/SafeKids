@@ -18,20 +18,21 @@
         </activity>
         <activity
             android:name=".Admin"
-            android:label="관리자"/>
+            android:label="관리자" />
         <activity
             android:name=".Parents"
-            android:label="학부모"/>
+            android:label="학부모" />
         <activity
-            android:name=".board"
-            android:label="게시판"/>
+            android:name=".Board"
+            android:label="게시판" />
         <activity
-            android:name=".SignUp"
-            android:label="회원가입"/>
+            android:name=".Admin_SignUp"
+            android:label="회원가입" />
         <activity
             android:name=".FindIdOrPw"
-            android:label="ID/PW찾기">
-        </activity>
+            android:label="ID/PW찾기" />
+        <activity android:name=".Parents_sign_up" />
+        <activity android:name=".Sign_up_divide"></activity>
     </application>
 
 </manifest>
