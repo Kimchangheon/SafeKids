@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.changheonkim.safekids">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,12 +27,16 @@
             android:label="게시판" />
         <activity
             android:name=".Admin_SignUp"
-            android:label="회원가입" />
+            android:label="회원가입(교사)" />
+        <activity
+            android:name=".Parents_sign_up"
+            android:label="회원가입(학부모)"/>
         <activity
             android:name=".FindIdOrPw"
             android:label="ID/PW찾기" />
-        <activity android:name=".Parents_sign_up" />
-        <activity android:name=".Sign_up_divide"></activity>
+        <activity
+            android:name=".Sign_up_divide"
+            android:label="계정 설정"></activity>
     </application>
 
 </manifest>

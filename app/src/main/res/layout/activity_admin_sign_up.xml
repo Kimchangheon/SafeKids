@@ -26,6 +26,8 @@
             <TextView
                 android:id="@+id/userId"
                 style="@style/SignupTextView"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:text="아 이 디"
                 />
             <EditText
@@ -57,38 +59,41 @@
         </TableRow>
 
         <TableRow
-            android:id="@+id/userPwConfirmTable"
+            android:id="@+id/userAdminNameTable"
             style="@style/SignUpTableRow">
             <TextView
-                android:id="@+id/userPwConfirm"
-                style="@style/SignupTextView"
-                android:text="비밀번호확인"
-                />
-
-            <EditText
-                android:id="@+id/userPwConfirmInput"
-                style="@style/SignUpEditText"
-                android:inputType="textPassword"
-                android:maxLength="15"
-                android:maxLines="1"
-                />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/userParentsNameTable"
-            style="@style/SignUpTableRow">
-            <TextView
-                android:id="@+id/userParentsName"
+                android:id="@+id/userAdminName"
                 style="@style/SignupTextView"
                 android:text="이    름"
                 />
 
             <EditText
-                android:id="@+id/userParentsNameInput"
+                android:id="@+id/userAdminNameInput"
                 style="@style/SignUpEditText"
                 android:privateImeOptions="defaultInputmode=korean"
                 android:maxLength="5"
                 android:maxLines="1"
+                />
+        </TableRow>
+
+
+
+        <TableRow
+            android:id="@+id/userPhoneTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userPhone"
+                style="@style/SignupTextView"
+                android:text="전 화 번 호"
+                />
+
+            <EditText
+                android:id="@+id/userPhoneInput"
+                style="@style/SignUpEditText"
+                android:inputType="phone"
+                android:maxLength="12"
+                android:maxLines="1"
+                android:hint="- 생략"
                 />
         </TableRow>
 
@@ -106,24 +111,6 @@
                 style="@style/SignUpEditText"
                 android:privateImeOptions="defaultInputmode=english"
                 android:inputType="textEmailAddress"
-                android:maxLines="1"
-                />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/userPhoneTable"
-            style="@style/SignUpTableRow">
-            <TextView
-                android:id="@+id/userPhone"
-                style="@style/SignupTextView"
-                android:text="전 화 번 호(-생략)"
-                />
-
-            <EditText
-                android:id="@+id/userPhoneInput"
-                style="@style/SignUpEditText"
-                android:inputType="phone"
-                android:maxLength="12"
                 android:maxLines="1"
                 />
         </TableRow>
@@ -148,8 +135,8 @@
         </TableRow>
         <Button
             android:layout_marginTop="10dp"
-            android:id="@+id/confirm"
-            android:text="확 인"
+            android:id="@+id/signUp"
+            android:text="등록하기"
             android:gravity="center"
             android:layout_gravity="center"
             android:textSize="20dp"
