@@ -65,6 +65,7 @@ public class Admin_SignUp extends AppCompatActivity {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
                                                     Intent intent = new Intent(Admin_SignUp.this, MainActivity.class);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                                     Admin_SignUp.this.startActivity(intent);
                                                 }
                                             })
@@ -72,10 +73,15 @@ public class Admin_SignUp extends AppCompatActivity {
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(Admin_SignUp.this);
                                     builder.setMessage("회원등록에 실패했습니다.")
-                                            .setNegativeButton("확인", null)
+                                            .setNegativeButton("확인", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    Intent intent = new Intent(Admin_SignUp.this, MainActivity.class);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                    Admin_SignUp.this.startActivity(intent);
+                                                }
+                                            })
                                             .create().show();
-                                    Intent intent = new Intent(Admin_SignUp.this, MainActivity.class);
-                                    Admin_SignUp.this.startActivity(intent);
                                 }
                             } catch (JSONException e) {
                                 e.getStackTrace();

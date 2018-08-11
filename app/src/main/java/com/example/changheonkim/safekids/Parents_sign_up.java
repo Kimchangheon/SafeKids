@@ -35,8 +35,8 @@ public class Parents_sign_up extends AppCompatActivity {
 
 
 
-        Button signup = (Button)findViewById(R.id.signUp);
-        signup.setOnClickListener(new View.OnClickListener() {
+        Button signUp = (Button)findViewById(R.id.signUp);
+        signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String userID = idText.getText().toString();
@@ -67,6 +67,7 @@ public class Parents_sign_up extends AppCompatActivity {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
                                                     Intent intent = new Intent(Parents_sign_up.this, MainActivity.class);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                                     Parents_sign_up.this.startActivity(intent);
                                                 }
                                             })
@@ -74,22 +75,26 @@ public class Parents_sign_up extends AppCompatActivity {
                                 } else {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(Parents_sign_up.this);
                                     builder.setMessage("회원등록에 실패했습니다.")
-                                            .setNegativeButton("확인", null)
+                                            .setNegativeButton("확인", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    Intent intent = new Intent(Parents_sign_up.this, MainActivity.class);
+                                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                    Parents_sign_up.this.startActivity(intent);
+                                                }
+                                            })
                                             .create().show();
-                                    Intent intent = new Intent(Parents_sign_up.this, MainActivity.class);
-                                    Parents_sign_up.this.startActivity(intent);
                                 }
                             } catch (JSONException e) {
                                 e.getStackTrace();
                             }
                         }
-                    };//2018/08/10 14:05
-                    RegisterRequest_Parents registerRequest_parents = new RegisterRequest_Admin(userID, userPw, userParentsName, userChildName, userEmail, userPhoneNum, responseListener);
+                    };
+                    RegisterRequest_Parents registerRequest_parents = new RegisterRequest_Parents(userID, userPw, userParentsName, userEmail, userPhoneNum, userChildName, schoolCode, responseListener);
                     RequestQueue queue = Volley.newRequestQueue(Parents_sign_up.this);
                     queue.add(registerRequest_parents);
                 }
             }
         });
-    }
     }
 }
