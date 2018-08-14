@@ -1,6 +1,7 @@
 package com.example.changheonkim.safekids;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -32,6 +33,15 @@ public class Admin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+        Intent intent = getIntent();
+        String userID = intent.getStringExtra("userID");
+        String userAdminName = intent.getStringExtra("userAdminName");
+        String userEmail = intent.getStringExtra("userEmail");
+        String userPhoneNum = intent.getStringExtra("userPhoneNum");
+        String userPw = intent.getStringExtra("userPw");
+        TextView idText = (TextView)findViewById(R.id.userId);
+
+        idText.setText(userAdminName+"("+userID+")"+"님 환영합니다.");
         //기본 값 생성 : 학생 1
         studentNumber = (TextView)findViewById(R.id.studentNumber);
         context = this;
