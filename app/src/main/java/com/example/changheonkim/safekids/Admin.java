@@ -42,6 +42,7 @@ public class Admin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+<<<<<<< HEAD
         Intent intent = getIntent();
         String userID = intent.getStringExtra("userID");
         String userAdminName = intent.getStringExtra("userAdminName");
@@ -55,6 +56,11 @@ public class Admin extends AppCompatActivity {
         if(!userID.equals("admin")){
             managementButton.setVisibility(View.GONE);
         }
+=======
+<<<<<<< HEAD
+    }//동적버튼생성
+=======
+>>>>>>> 8b0678e0dc353da976215117dfe0c99c1253a4e0
         //기본 값 생성 : 학생 1
         studentNumber = (TextView)findViewById(R.id.studentNumber);
         context = this;
@@ -149,4 +155,5 @@ public class Admin extends AppCompatActivity {
             studentlayout.addView(tr,tllp);
         }
     }
+>>>>>>> 24303953a0ae10b59d9423318aeec63ffe53a35a
 }

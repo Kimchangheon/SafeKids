@@ -8,6 +8,18 @@
     tools:context=".MainActivity">
 <!--절대관리자 아이디 : admin 비밀번호 : safekids1 권한 : 회원목록보기 -->
 
+<<<<<<< HEAD
+    <TextView
+        android:id="@+id/appname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="150dp"
+        android:text="MYSafeKids"
+        android:textSize="30dp" />
+
+=======
+>>>>>>> c4725c085d30b1c20e51d131614fef734a6baab3
     <EditText
         android:id="@+id/userId"
         android:layout_width="166dp"
@@ -44,6 +56,13 @@
 
     <Button
         android:id="@+id/login"
+<<<<<<< HEAD
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:textSize="30dp"
+</LinearLayout>
+=======
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="180dp"
@@ -211,3 +230,4 @@
 
 
 </android.support.constraint.ConstraintLayout>
+>>>>>>> c4725c085d30b1c20e51d131614fef734a6baab3
