@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         final RadioGroup state = (RadioGroup)findViewById(R.id.state);
 
 
+
         //로그인버튼
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
 
 
         //임시버튼 시작

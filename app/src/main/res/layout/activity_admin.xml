@@ -16,36 +16,14 @@
             android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="3"
             android:gravity="center"/>
-        <TextView
-            android:id="@+id/userPw"
-            android:textSize="20dp"
+        <Button
+            android:id="@+id/managementButton"
+            android:text="회원관리"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"/>
-        <TextView
-            android:id="@+id/userAdminName"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"/>
-        <TextView
-            android:id="@+id/userEmail"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"/>
-        <TextView
-            android:id="@+id/userPhonNum"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"/>
+            android:layout_weight="1"/>
     </TableRow>
 
     <TableLayout
