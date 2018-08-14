@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-<!--절대관리자 아이디 : admin 비밀번호 : safekids1 권한 : 회원목록보기 -->
+    <!--절대관리자 아이디 : admin 비밀번호 : safekids1 권한 : 회원목록보기 -->
 
     <EditText
         android:id="@+id/userId"
