@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "802480091074",
+    "firebase_url": "https://authtest-ee68e.firebaseio.com",
+    "project_id": "authtest-ee68e",
+    "storage_bucket": "authtest-ee68e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802480091074:android:a7af41c241705419",
+        "android_client_info": {
+          "package_name": "com.example.changheonkim.momfirebaseauth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802480091074-ai2vl7kibb1k1n9sev0dqjhsk5bnhq0r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.changheonkim.momfirebaseauth",
+            "certificate_hash": "80485f760f13a70410073b91e451d4f789ae2832"
+          }
+        },
+        {
+          "client_id": "802480091074-qd8nhehkbieaeq1phjqsl7a17p0c365r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBajRQMUjk_1QLgoj1FBa79gUhhGNucMqw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802480091074-qd8nhehkbieaeq1phjqsl7a17p0c365r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    tools:context=".Sign_up_Teacher"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <!--이름 : 5글자 아이디 : 12글자 비밀번호 : 15글자 전화번호 : 12글자 코드 : 7자 제한-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/topBlank"
+            android:layout_width="50dp"
+            android:layout_height="20dp" />
+        <!--tablerow-textview-edittext-->
+        <TableRow
+            android:id="@+id/userIdTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userId"
+                style="@style/SignupTextView"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:text="이메일(Id)"
+                />
+            <EditText
+                android:id="@+id/userIdInput"
+                android:inputType="text"
+
+                android:maxLines="1"
+                android:privateImeOptions="defaultInputmode=english"
+                style="@style/SignUpEditText"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/userPwTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userPw"
+                style="@style/SignupTextView"
+                android:text="비 밀 번 호"
+                />
+
+            <EditText
+                android:id="@+id/userPwInput"
+                style="@style/SignUpEditText"
+                android:inputType="textPassword"
+                android:maxLength="15"
+                android:maxLines="1"
+                />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/userAdminNameTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userAdminName"
+                style="@style/SignupTextView"
+                android:text="이    름"
+                />
+
+            <EditText
+                android:id="@+id/userAdminNameInput"
+                style="@style/SignUpEditText"
+                android:privateImeOptions="defaultInputmode=korean"
+                android:maxLength="5"
+                android:maxLines="1"
+                />
+        </TableRow>
+
+
+
+        <TableRow
+            android:id="@+id/userPhoneTable"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/userPhone"
+                style="@style/SignupTextView"
+                android:text="전 화 번 호"
+                />
+
+            <EditText
+                android:id="@+id/userPhoneInput"
+                style="@style/SignUpEditText"
+                android:inputType="phone"
+                android:maxLength="12"
+                android:maxLines="1"
+                android:hint="- 생략"
+                />
+        </TableRow>
+
+        <!--<TableRow-->
+            <!--android:id="@+id/userEmailTable"-->
+            <!--style="@style/SignUpTableRow">-->
+            <!--<TextView-->
+                <!--android:id="@+id/userEmail"-->
+                <!--style="@style/SignupTextView"-->
+                <!--android:text="이 메 일"-->
+                <!--/>-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/userEmailInput"-->
+                <!--style="@style/SignUpEditText"-->
+                <!--android:privateImeOptions="defaultInputmode=english"-->
+                <!--android:inputType="textEmailAddress"-->
+                <!--android:maxLines="1"-->
+                <!--/>-->
+        <!--</TableRow>-->
+
+        <TableRow
+            android:id="@+id/schoolCode"
+            style="@style/SignUpTableRow">
+            <TextView
+                android:id="@+id/username"
+                style="@style/SignupTextView"
+                android:text="학 원 코 드"
+                />
+
+            <EditText
+                android:id="@+id/schoolCodeInput"
+                style="@style/SignUpEditText"
+                android:privateImeOptions="defaultInputmode=english"
+                android:inputType="text"
+                android:maxLength="7"
+                android:maxLines="1"
+                />
+        </TableRow>
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/signUp"
+            android:text="등록하기"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/BottomBlank"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+    </LinearLayout>
+</ScrollView>
