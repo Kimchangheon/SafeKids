@@ -11,10 +11,19 @@ public class Info_User_Parent {
     String imageUrl;
     String phone_number;
     String school_code;
+    String absent;
+
     public int starCount = 0;
     public Map<String, Boolean> stars = new HashMap<>();
 
 
+    public String getAbsent() {
+        return absent;
+    }
+
+    public void setAbsent(String absent) {
+        this.absent = absent;
+    }
     public String getImageUrl() {
         return imageUrl;
     }

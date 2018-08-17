@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".DatabaseTest">
+    tools:context=".HomeActivity_Teacher">
 
 
     <ImageView
         android:id="@+id/item_imageView"
-        android:layout_width="136dp"
-        android:layout_height="150dp"
+        android:layout_width="133dp"
+        android:layout_height="158dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
@@ -22,37 +22,35 @@
 
     <TextView
         android:id="@+id/item_textView"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
+        android:layout_width="142dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="92dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
         android:text="부모님 전화번호"
         android:textSize="20dp"
-        android:gravity="center_horizontal|center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/item_textView2"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/item_textView2"
-        app:layout_constraintTop_toBottomOf="@+id/item_textView2"
-        app:layout_constraintVertical_bias="0.081" />
+        app:layout_constraintStart_toEndOf="@+id/item_imageView" />
 
     <TextView
         android:id="@+id/item_textView2"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="135dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="136dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
         android:text="학 생 이 름"
         android:textSize="20dp"
-        android:gravity="center_horizontal|center_vertical"
         app:layout_constraintBottom_toBottomOf="@+id/item_imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toEndOf="@+id/item_imageView"
         app:layout_constraintTop_toTopOf="@+id/item_imageView"
         app:layout_constraintVertical_bias="0.0" />
@@ -75,15 +73,19 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="160dp"
+        android:layout_width="153dp"
         android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:entries="@array/spinner_test"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="@+id/item_imageView"
         app:layout_constraintEnd_toEndOf="@+id/item_textView"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/item_textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/item_imageView"
         app:layout_constraintTop_toBottomOf="@+id/item_textView"
         app:layout_constraintVertical_bias="0.0" />
 

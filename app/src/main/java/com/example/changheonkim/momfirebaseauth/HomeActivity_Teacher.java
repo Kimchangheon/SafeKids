@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,6 +20,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -36,6 +36,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -50,18 +51,13 @@ public class HomeActivity_Teacher extends AppCompatActivity
     private FirebaseDatabase database; //데이터베이스도 선언
     private DatabaseReference mDatabase;
 
-    //업로드한 이미지를 보여주기 위한 변수들
-    private ImageView imageView;
-    private TextInputEditText title;
-    private TextInputEditText description;
-    private Button button;
-    private Button button2;
-    private String imagePath;
+    private Button sendingButton;
 
     private RecyclerView recyclerView;
 
     private List<Info_User_Parent> info_user_parents = new ArrayList<>();
     private List<String> uidLists = new ArrayList<>();
+    private HashMap<String, String> info_absent = new HashMap<String, String>();
 
 
     @Override
@@ -74,6 +70,14 @@ public class HomeActivity_Teacher extends AppCompatActivity
         storage = FirebaseStorage.getInstance();
         database = FirebaseDatabase.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        sendingButton = (Button)findViewById(R.id.sendingButton);
+        sendingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
 
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
@@ -88,7 +92,7 @@ public class HomeActivity_Teacher extends AppCompatActivity
 
                 info_user_parents.clear(); //수정될 때마다 날아오기 때문에 clear안해주면 쌓인다.
                 uidLists.clear();
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){//처음부터 끝까지 하나씩 꺼낸다.
                     Info_User_Parent Info_User_Parent = snapshot.getValue(Info_User_Parent.class);
                     String uidKey = snapshot.getKey();
                     info_user_parents.add(Info_User_Parent);
@@ -210,7 +214,7 @@ public class HomeActivity_Teacher extends AppCompatActivity
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_board,parent,false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_teacher,parent,false);
             return new HomeActivity_Teacher.CustomViewHolder(view);
 
         }
@@ -219,8 +223,11 @@ public class HomeActivity_Teacher extends AppCompatActivity
         public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
             ((HomeActivity_Teacher.CustomViewHolder)holder).textView.setText(info_user_parents.get(position).getName_child());
             ((HomeActivity_Teacher.CustomViewHolder)holder).textView2.setText(info_user_parents.get(position).getPhone_number());
+            //부모에게 보낼 정보 map에 집어넣기
+            info_absent.put(info_user_parents.get(position).getPhone_number(), ((HomeActivity_Teacher.CustomViewHolder)holder).spinner.getSelectedItem().toString());
 
             Glide.with(holder.itemView.getContext()).load(info_user_parents.get(position).getImageUrl()).into(((HomeActivity_Teacher.CustomViewHolder)holder).imageView);
+
             ((HomeActivity_Teacher.CustomViewHolder)holder).starButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -280,6 +287,7 @@ public class HomeActivity_Teacher extends AppCompatActivity
         TextView textView;
         TextView textView2;
         ImageView starButton;
+        Spinner spinner;
 
         public CustomViewHolder(View view) {
             super(view);
@@ -287,7 +295,9 @@ public class HomeActivity_Teacher extends AppCompatActivity
             textView = (TextView)view.findViewById(R.id.item_textView);
             textView2 = (TextView)view.findViewById(R.id.item_textView2);
             starButton = (ImageView)view.findViewById(R.id.item_starBurron_imageView);
-        }
+            spinner = (Spinner)view.findViewById(R.id.spinner);
+
+            }
     }
 }
 
