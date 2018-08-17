@@ -81,7 +81,7 @@ public class Sign_up_Teacher extends AppCompatActivity {
         info.setName_teacher(userNameInput.getText().toString());
         info.setPhone_number(userPhoneInput.getText().toString());
         info.setSchool_code(schoolCodeInput.getText().toString());
-        databaseReference.child("user").child("user_teacher").push().setValue(info);
+        databaseReference.child("user").child("user_teacher").child(mAuth.getCurrentUser().getUid()).setValue(info);
 
     }
 }

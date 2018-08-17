@@ -22,8 +22,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.changheonkim.momfirebaseauth.model.NotificationModel;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -33,11 +35,23 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.gson.Gson;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 
 public class HomeActivity_Teacher extends AppCompatActivity
@@ -51,7 +65,7 @@ public class HomeActivity_Teacher extends AppCompatActivity
     private FirebaseDatabase database; //데이터베이스도 선언
     private DatabaseReference mDatabase;
 
-    private Button sendingButton;
+    private FloatingActionButton sendingButton;
 
     private RecyclerView recyclerView;
 
@@ -60,6 +74,38 @@ public class HomeActivity_Teacher extends AppCompatActivity
     private HashMap<String, String> info_absent = new HashMap<String, String>();
 
 
+    void sendGcm(){
+
+        Gson gson = new Gson();
+
+        NotificationModel notificationModel = new NotificationModel();
+        notificationModel.to =  "ezTNMI4z9UU:APA91bGb7obZb9NF04q7NxvPy3i98cEoIrKO2xgsrxF9KPOJn4Lhe0Ocnazb9a6aQ_Per9r7P06E7mSeL33mpUbBJVpQq1iYNg-YTMJ6PIXgvbCoRczmlwdog6VbQ7PGEwXDWdSAonyfwzB9cQ21PWWUwVrpythBJQ";
+        notificationModel.notification.title = "보낸이 아이디";
+        notificationModel.notification.text = "니 아들이 안왔는디?";
+
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset = utf8"), gson.toJson(notificationModel));
+
+        Request request = new Request.Builder()
+                .header("Content-Type", "application/json")
+                .addHeader("Authorization", "key=AIzaSyDTyevOMo8GBpzJ6mPub4e7RMoMn7T7BEQ")
+                .url("https://gcm-http.googleapis.com/gcm/send")
+                .post(requestBody)
+                .build();
+        OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+            }
+        });
+
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,10 +117,12 @@ public class HomeActivity_Teacher extends AppCompatActivity
         database = FirebaseDatabase.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        sendingButton = (Button)findViewById(R.id.sendingButton);
+        sendingButton = (FloatingActionButton)findViewById(R.id.sendingButton);
         sendingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "전송 완료", Toast.LENGTH_LONG).show();
+                sendGcm();
 
             }
         });
@@ -113,14 +161,7 @@ public class HomeActivity_Teacher extends AppCompatActivity
 
         setSupportActionBar(toolbar);
 
-                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-                fab.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -140,6 +181,16 @@ public class HomeActivity_Teacher extends AppCompatActivity
         emailTextView.setText(auth.getCurrentUser().getEmail());//현재 사용자의 이메일을 가져와서 텍스트뷰에 보여준다.
 
 
+        passPushTokenToServer();
+    }
+
+    void passPushTokenToServer() //push알람 토큰을 서버로 전송
+    {
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Map<String, Object> map = new HashMap<>();
+        map.put("pushToken",token);
+        FirebaseDatabase.getInstance().getReference().child("user").child("user_teacher").child(uid).updateChildren(map);//setvalue하게되면 기존의 데이터가 다 날라간다.
     }
 
     @Override
@@ -191,6 +242,7 @@ public class HomeActivity_Teacher extends AppCompatActivity
             startActivityForResult(intent,GALLERY_CODE);//어디에 쓰이는 거였어?
 
         } else if (id == R.id.nav_slideshow) {
+            startActivity(new Intent(getApplicationContext(), HomeActivity_Parent.class));
 
         } else if (id == R.id.nav_manage) {
 

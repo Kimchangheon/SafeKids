@@ -125,7 +125,7 @@ public class Sign_up_Parent extends AppCompatActivity {
         info.setName_child(userChildNameinput.getText().toString());
         info.setPhone_number(userPhoneInput.getText().toString());
         info.setSchool_code(schoolCodeInput.getText().toString());
-        databaseReference.child("user").child("user_parent").child(info.getPhone_number()).setValue(info);
+        databaseReference.child("user").child("user_parent").child(mAuth.getCurrentUser().getUid()).setValue(info);
 
     }
 

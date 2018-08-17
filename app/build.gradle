@@ -41,6 +41,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:11.8.0' //저장소 관련 gradle 11.6.2
 
     implementation 'com.google.firebase:firebase-database:11.8.0' //database
+    implementation 'com.google.firebase:firebase-messaging:11.8.0' //
+    implementation 'com.google.code.gson:gson:2.8.5'// 푸쉬 알람을 위한 라이브러리
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
 
 }
 apply plugin: 'com.google.gms.google-services'

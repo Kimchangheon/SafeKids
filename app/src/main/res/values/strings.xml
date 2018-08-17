@@ -24,5 +24,6 @@
         <item>Pop</item>
         <item>Folk</item>
     </array>
+    <string name="title_activity_home__parent">HomeActivity_Parent</string>
 
 </resources>

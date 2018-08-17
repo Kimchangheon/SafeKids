@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Info_User_Parent {
+    String Uid;
     String Id;
     String Password;
     String name_parent;
@@ -12,10 +13,18 @@ public class Info_User_Parent {
     String phone_number;
     String school_code;
     String absent;
+    String pushToken;
 
     public int starCount = 0;
     public Map<String, Boolean> stars = new HashMap<>();
 
+    public String getPushToken() {
+        return pushToken;
+    }
+
+    public void setPushToken(String pushToken) {
+        this.pushToken = pushToken;
+    }
 
     public String getAbsent() {
         return absent;
@@ -24,6 +33,7 @@ public class Info_User_Parent {
     public void setAbsent(String absent) {
         this.absent = absent;
     }
+
     public String getImageUrl() {
         return imageUrl;
     }
