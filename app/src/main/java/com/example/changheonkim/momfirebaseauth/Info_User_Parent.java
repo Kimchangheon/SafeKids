@@ -18,6 +18,11 @@ public class Info_User_Parent {
     public int starCount = 0;
     public Map<String, Boolean> stars = new HashMap<>();
 
+
+    public String getUid() { return Uid; }
+
+    public void setUid(String uid) { Uid = uid; }
+
     public String getPushToken() {
         return pushToken;
     }

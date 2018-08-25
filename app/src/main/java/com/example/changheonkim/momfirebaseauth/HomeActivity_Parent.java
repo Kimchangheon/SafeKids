@@ -1,5 +1,6 @@
 package com.example.changheonkim.momfirebaseauth;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
@@ -22,6 +24,9 @@ import java.util.Map;
 
 public class HomeActivity_Parent extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private FirebaseAuth auth; //인증 변수를 global로 선언
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +115,12 @@ public class HomeActivity_Parent extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        }else if(id==R.id.nav_logout){
+            auth.signOut();
+            LoginManager.getInstance().logOut(); //페이스북 로그아웃을 위한 코드
+            finish(); //자기는 사라지고
+            Intent intent = new Intent (HomeActivity_Parent.this,MainActivity.class);//앞에 MainActivity.f
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -2,12 +2,15 @@ package com.example.changheonkim.momfirebaseauth;
 
 import android.content.Intent;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -42,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextPassword;
     private CallbackManager mCallbackManager;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseAuth.AuthStateListener mAuthListener2;
     private FirebaseDatabase database;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
+
+        final RadioGroup state = (RadioGroup)findViewById(R.id.st);
+
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -85,8 +93,21 @@ public class MainActivity extends AppCompatActivity {
         emailLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString());
+                int id = state.getCheckedRadioButtonId();
+                final RadioButton rb = (RadioButton)findViewById(id);
+
+                if(rb == null){
+                    Toast.makeText(getApplicationContext(), "계정권한을 체크해주세요", Toast.LENGTH_SHORT).show();
+                }
+                else if(rb.getText().equals("선생님")){
+                    loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString());
             }
+                else if(rb.getText().equals("학부모")){
+                    loginUser(editTextEmail.getText().toString(), editTextPassword.getText().toString());
+    }
+
+
+}
         });
 
         // Initialize Facebook Login button
@@ -114,13 +135,21 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    if( database.getReference().) {
+                    int id = state.getCheckedRadioButtonId();
+                    final RadioButton rb = (RadioButton)findViewById(id);
+//                    Intent intent = new Intent(MainActivity.this, HomeActivity_Teacher.class);//앞에 MainActivity.f
+//                    startActivity(intent);
+//                    finish();
+
+                    if(rb.getText().equals("선생님")) {
                         Intent intent = new Intent(MainActivity.this, HomeActivity_Teacher.class);//앞에 MainActivity.f
                         startActivity(intent);
                         finish();
                     }
                     else{
-
+                        Intent intent = new Intent(MainActivity.this, HomeActivity_Parent.class);//앞에 MainActivity.f
+                        startActivity(intent);
+                        finish();
                     }
                 } else {
                     // User is signed out
@@ -129,7 +158,9 @@ public class MainActivity extends AppCompatActivity {
                 // [END_EXCLUDE]
             }
         };
+
     }
+
 
     private void handleFacebookAccessToken(AccessToken token) {
 
@@ -154,8 +185,6 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-
-
 //    private void createUser(final String email, final String password){
 //        mAuth.createUserWithEmailAndPassword(email, password)
 //                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -179,6 +208,9 @@ public class MainActivity extends AppCompatActivity {
 //                    }
 //                });
 //    }
+
+
+                        // ...
 
     private void loginUser (String email, String password){
         mAuth.signInWithEmailAndPassword(email, password)

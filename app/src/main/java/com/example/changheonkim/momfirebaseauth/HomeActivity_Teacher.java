@@ -74,14 +74,15 @@ public class HomeActivity_Teacher extends AppCompatActivity
     private HashMap<String, String> info_absent = new HashMap<String, String>();
 
 
-    void sendGcm(){
+    void sendGcm()
+    {
 
         Gson gson = new Gson();
 
         NotificationModel notificationModel = new NotificationModel();
         notificationModel.to =  "ezTNMI4z9UU:APA91bGb7obZb9NF04q7NxvPy3i98cEoIrKO2xgsrxF9KPOJn4Lhe0Ocnazb9a6aQ_Per9r7P06E7mSeL33mpUbBJVpQq1iYNg-YTMJ6PIXgvbCoRczmlwdog6VbQ7PGEwXDWdSAonyfwzB9cQ21PWWUwVrpythBJQ";
         notificationModel.notification.title = "보낸이 아이디";
-        notificationModel.notification.text = "니 아들이 안왔는디?";
+        notificationModel.notification.text = info_user_parents.get(poi);
 
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset = utf8"), gson.toJson(notificationModel));
 
@@ -103,9 +104,8 @@ public class HomeActivity_Teacher extends AppCompatActivity
 
             }
         });
-
-
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,23 +134,24 @@ public class HomeActivity_Teacher extends AppCompatActivity
         final HomeActivity_Teacher.HomeRecyclerViewAdapter homeRecyclerViewAdapter = new HomeActivity_Teacher.HomeRecyclerViewAdapter();
         recyclerView.setAdapter(homeRecyclerViewAdapter);
 
+
+//진보된 for문으로 학부모회원정보를 객체로써 받아온다.
         database.getReference().child("user").child("user_parent").addValueEventListener(new ValueEventListener() {//글자 하나씩 바뀔때마다 클라이언트에 알려준다.. 자동정으로 새로고침이 된다. 옵저버 패턴
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {       //9분 18초
 
                 info_user_parents.clear(); //수정될 때마다 날아오기 때문에 clear안해주면 쌓인다.
                 uidLists.clear();
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){//처음부터 끝까지 하나씩 꺼낸다.
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){// 학부모 회원정보 처음부터 끝까지 하나씩 꺼낸다.
                     Info_User_Parent Info_User_Parent = snapshot.getValue(Info_User_Parent.class);
                     String uidKey = snapshot.getKey();
                     info_user_parents.add(Info_User_Parent);
                     uidLists.add(uidKey);
-
                 }
                 homeRecyclerViewAdapter.notifyDataSetChanged();//계속 갱신되기 때문에 새로고침을 해 주어야 한다.
-
-
             }
+
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -255,6 +256,7 @@ public class HomeActivity_Teacher extends AppCompatActivity
             LoginManager.getInstance().logOut(); //페이스북 로그아웃을 위한 코드
             finish(); //자기는 사라지고
             Intent intent = new Intent (HomeActivity_Teacher.this,MainActivity.class);//앞에 MainActivity.f
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -272,14 +274,20 @@ public class HomeActivity_Teacher extends AppCompatActivity
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position)
+        {
             ((HomeActivity_Teacher.CustomViewHolder)holder).textView.setText(info_user_parents.get(position).getName_child());
             ((HomeActivity_Teacher.CustomViewHolder)holder).textView2.setText(info_user_parents.get(position).getPhone_number());
-            //부모에게 보낼 정보 map에 집어넣기
-            info_absent.put(info_user_parents.get(position).getPhone_number(), ((HomeActivity_Teacher.CustomViewHolder)holder).spinner.getSelectedItem().toString());
 
-            Glide.with(holder.itemView.getContext()).load(info_user_parents.get(position).getImageUrl()).into(((HomeActivity_Teacher.CustomViewHolder)holder).imageView);
+            //부모에게 보낼 정보 map에 집어넣기(번호랑 출석여부)
+            info_user_parents.get(position).setAbsent( ((HomeActivity_Teacher.CustomViewHolder)holder).spinner.getSelectedItem().toString() );
 
+            info_absent.put(info_user_parents.get(position).getUid(), ((HomeActivity_Teacher.CustomViewHolder)holder).spinner.getSelectedItem().toString());
+
+            Glide.with(holder.itemView.getContext()).load(info_user_parents.get(position).getImageUrl()).
+                    into(((HomeActivity_Teacher.CustomViewHolder)holder).imageView); //사진을 이미지뷰에 보여주는 코드
+
+            //좋아요버튼 코드
             ((HomeActivity_Teacher.CustomViewHolder)holder).starButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -334,7 +342,8 @@ public class HomeActivity_Teacher extends AppCompatActivity
         }
     }
 
-    private class CustomViewHolder extends RecyclerView.ViewHolder {
+    private class CustomViewHolder extends RecyclerView.ViewHolder
+    {
         ImageView imageView;
         TextView textView;
         TextView textView2;
